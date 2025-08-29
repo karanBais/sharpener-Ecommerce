@@ -2,8 +2,11 @@ import React, { useDebugValue } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaSpotify } from "react-icons/fa6";
+import Cart from "../../Cart/Cart";
 
 const MainSection = () => {
+    
+
   const productsArr = [
     {
       title: "ALBUM 1",
@@ -43,6 +46,7 @@ const MainSection = () => {
   ];
   return (
     <>
+    
       <div className="bg-gray-400 py-4">
         <h1 className="text-8xl text-center">The Generic</h1>
       </div>
@@ -52,7 +56,6 @@ const MainSection = () => {
           {productsArr.map((product, index) => {
             return (
               <div key={index}>
-                {" "}
                 <p className="text-2xl font-bold text-center">{product.title}</p>
                 <img src={product.imageUrl} alt="" />
                <div className="flex justify-between">
@@ -66,7 +69,7 @@ const MainSection = () => {
 
       <div className="bg-black text-white p-10 flex justify-around items-center">
         <h1 className="text-2xl">The Generic</h1>
-        <FaFacebookF className="" />
+        <FaFacebookF />
         <FaYoutube />
         <FaSpotify />
 
