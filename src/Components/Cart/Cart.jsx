@@ -1,9 +1,12 @@
 import React from "react";
 import { IoMdClose } from "react-icons/io";
+import { useCart } from "../ContextAPI/Context";
 
-const Cart = ({ cartItems, onClose, onRemove }) => {
+const Cart = ({ onClose }) => {
+  const { cartItems, removeCartItem } = useCart();
+
   return (
-    <div className="absolute top-16 right-0 bg-white border border-gray-300 p-4 w-96 shadow-lg z-50 ">
+    <div className="absolute top-16 right-0 bg-white border border-gray-300 p-4 w-96 shadow-lg z-50">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl text-center">CART</h2>
         <IoMdClose onClick={onClose} className="text-2xl cursor-pointer" />
@@ -30,7 +33,7 @@ const Cart = ({ cartItems, onClose, onRemove }) => {
                       <p>${element.price}</p>
                       <p>Quantity: {element.quantity}</p>
                       <button
-                        onClick={() => onRemove(index)}
+                        onClick={() => removeCartItem(index)}
                         className="border border-red-600 bg-red-500 py-1 px-2 text-white font-bold hover:bg-red-400 cursor-pointer"
                       >
                         Remove Item
