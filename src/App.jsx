@@ -36,7 +36,6 @@ const appRoute = createBrowserRouter([
 }
 ])
 
-
 const App = () => {
   return (
     <CartProvider>

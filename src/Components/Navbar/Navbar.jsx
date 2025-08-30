@@ -1,7 +1,7 @@
 import React from "react";
 import Cart from "../Cart/Cart";
 import {useCart} from "../ContextAPI/Context";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import MainSection from "../MainSection/MainSection";
 
 const Navbar = () => {
@@ -12,9 +12,9 @@ const Navbar = () => {
       <div className="bg-blue-500 text-white p-4">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <ul className="flex gap-20 justify-center">
-           <Link to={'/'}> <li>Home</li></Link>
-            <Link to={'/store'}> <li>Store</li></Link>
-            <Link to={'/about'}> <li>About Us</li></Link>
+           <NavLink to={'/'}> <li>Home</li></NavLink>
+            <NavLink to={'/store'}> <li>Store</li></NavLink>
+            <NavLink to={'/about'}> <li>About Us</li></NavLink>
           </ul>
           <button
             onClick={() => setShowCart(true)}
