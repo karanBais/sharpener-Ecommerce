@@ -1,9 +1,8 @@
 import React from "react";
-import { FaFacebookF, FaYoutube } from "react-icons/fa";
-import { FaSpotify } from "react-icons/fa6";
+
 import { useCart } from "../ContextAPI/Context";
 
-const MainSection = () => {
+const StorePage = () => {
   const { addToCart } = useCart();
 
   const productsArr = [
@@ -31,12 +30,9 @@ const MainSection = () => {
 
   return (
     <>
-      <div className="bg-gray-400 py-4">
-        <h1 className="text-8xl text-center">The Generic</h1>
-      </div>
-      <h1 className="text-3xl text-center py-4">MUSIC</h1>
-
-      <div className="max-w-7xl mx-auto my-10 grid grid-cols-2 gap-10 place-items-center">
+    <div className=" mx-auto my-10gap-20 place-items-center ">
+     <h1 className="text-3xl text-center py-4">MUSIC</h1>
+     <div className="mx-auto my-10 grid grid-cols-2 gap-20 ">
         {productsArr.map((product, index) => (
           <div key={index}>
             <p className="text-2xl font-bold text-center">{product.title}</p>
@@ -53,15 +49,9 @@ const MainSection = () => {
           </div>
         ))}
       </div>
-
-      <div className="bg-black text-white p-10 flex justify-around items-center">
-        <h1 className="text-2xl">The Generic</h1>
-        <FaFacebookF />
-        <FaYoutube />
-        <FaSpotify />
       </div>
     </>
   );
 };
 
-export default MainSection;
+export default StorePage;

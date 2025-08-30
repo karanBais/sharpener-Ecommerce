@@ -1,18 +1,18 @@
 import React from "react";
 import Cart from "../Cart/Cart";
 import {useCart} from "../ContextAPI/Context";
-import { Link, NavLink } from "react-router-dom";
-import MainSection from "../MainSection/MainSection";
+import { useLocation, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [showCart, setShowCart] = React.useState(false);
   const {cartItems} = useCart();
+  const location = useLocation();
   return (
     <>
       <div className="bg-blue-500 text-white p-4">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <ul className="flex gap-20 justify-center">
-           <NavLink to={'/'}> <li>Home</li></NavLink>
+           <NavLink to={'/'}> <li>Home</li> </NavLink>
             <NavLink to={'/store'}> <li>Store</li></NavLink>
             <NavLink to={'/about'}> <li>About Us</li></NavLink>
           </ul>
@@ -31,6 +31,8 @@ const Navbar = () => {
       </div>
       <div className="bg-gray-400 py-4">
         <h1 className="text-8xl text-center">The Generic</h1>
+        {location.pathname ==='/' && // to check in which path/page you are in.
+        <h1 className="text-3xl text-center py-4 border-1 border-blue-950 mx-130 my-4">Get Our Latest Album</h1>}
       </div>
 
       {showCart && <Cart onClose={() => setShowCart(false)} />}

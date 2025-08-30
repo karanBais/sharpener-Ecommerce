@@ -1,19 +1,24 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
-import MainSection from "./Components/MainSection/MainSection";
+import MainSection from "./Components/StorePage/StorePage";
 import { CartProvider } from "./Components/ContextAPI/Context";
 import { createBrowserRouter, Outlet, RouterProvider, } from "react-router-dom";
-import Store from "./Components/Store/Store";
 import AboutUs from "./Components/AboutUs/AboutUs";
+import Footer from "./Components/Navbar/Footer";
+import StorePage from "./Components/StorePage/StorePage";
+import HomePage from "./Components/HomePage/HomePage";
 
 
 
 const Layout = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
+      <main className="flex flex-grow">
       <Outlet /> 
-    </>
+      </main>
+      <Footer />
+    </div>
   )
 }
 const appRoute = createBrowserRouter([
@@ -22,11 +27,11 @@ const appRoute = createBrowserRouter([
   children:[
     {
       path: '/',
-      element: <MainSection/>
+      element: <HomePage />
     },
     {
       path: '/store',
-      element: <Store />
+      element: <StorePage />
     },
     {
       path: '/about',
