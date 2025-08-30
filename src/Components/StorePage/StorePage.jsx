@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useCart } from "../ContextAPI/Context";
 
@@ -28,6 +28,17 @@ const StorePage = () => {
     },
   ];
 
+  useEffect( () => {
+    FetchApi();
+  }, [])
+
+  const FetchApi = async () => {
+    const response = await fetch("https://swapi.info/api/films");
+    const json = await response.json();
+    console.log(json);
+  }
+
+  // console.log(data);
   return (
     <>
     <div className=" mx-auto my-10gap-20 place-items-center ">
