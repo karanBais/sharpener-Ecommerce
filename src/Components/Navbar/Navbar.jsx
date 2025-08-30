@@ -15,6 +15,7 @@ const Navbar = () => {
            <NavLink to={'/'}> <li>Home</li> </NavLink>
             <NavLink to={'/store'}> <li>Store</li></NavLink>
             <NavLink to={'/about'}> <li>About Us</li></NavLink>
+            <NavLink to={'/movies'}> <li>Movies</li></NavLink>
           </ul>
           <button
             onClick={() => setShowCart(true)}

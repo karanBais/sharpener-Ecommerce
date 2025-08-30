@@ -7,6 +7,7 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Footer from "./Components/Navbar/Footer";
 import StorePage from "./Components/StorePage/StorePage";
 import HomePage from "./Components/HomePage/HomePage";
+import MovieData from "./Components/MovieData/MovieData";
 
 
 
@@ -36,6 +37,10 @@ const appRoute = createBrowserRouter([
     {
       path: '/about',
       element: <AboutUs />
+    },
+    {
+      path: '/movies',
+      element: <MovieData />
     }
   ]
 }
