@@ -4,6 +4,7 @@ import { useCart } from "../ContextAPI/Context";
 
 const StorePage = () => {
   const { addToCart } = useCart();
+  const [movies, setMovies] = React.useState([]);
 
   const productsArr = [
     {
