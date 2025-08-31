@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import ErrorPage from "./ErrorPage";
 
 const MovieData = () => {
@@ -8,11 +8,15 @@ const MovieData = () => {
   const [retryInterval, setRetryInterval] = useState(null);
   const [cancelRetry, setCancelRetry] = useState(false);
 
+  useEffect(() => {
+    fetchMovie();
+  }, [])
+
   const fetchMovie = async () => {
     setIsLoading(true);
     setError(false);
     try {
-      const response = await fetch("https://swapi.info/api/film");
+      const response = await fetch("https://swapi.info/api/films");
 
       if (!response.ok) {
         throw new Error("Failed to fetch movies");
@@ -71,12 +75,7 @@ const MovieData = () => {
   return (
     <div className="mx-auto my-10 gap-20 place-items-center">
       <h1 className="text-3xl text-center py-4">MOVIES</h1>
-      <button
-        onClick={fetchMovie}
-        className="border-2 border-amber-500 py-1 px-2 hover:bg-amber-200"
-      >
-        Fetch Movies
-      </button>
+    
 
       {isLoading && <p className="text-center my-10">Loading...</p>}
 
