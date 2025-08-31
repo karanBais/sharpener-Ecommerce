@@ -1,11 +1,11 @@
 import React from "react";
 
-const AddNewMovie = () => {
+const AddNewMovie = ({onAddMovie}) => {
   const [title, setTitle] = React.useState("");
   const [openingText, setOpeningText] = React.useState("");
   const [releaseDate, setReleaseDate] = React.useState("");
 
-  const addMovies = (e) => {
+  const addMoviesHandler = (e) => {
     e.preventDefault();
 
     const newMovie = {
@@ -14,16 +14,18 @@ const AddNewMovie = () => {
       releaseDate,
     };
 
-    console.log(newMovie); 
+    console.log(newMovie);
     setTitle("");
     setOpeningText("");
     setReleaseDate("");
+
+    onAddMovie(newMovie);
   };
 
   return (
     <div className="">
       <form
-        onSubmit={addMovies}
+        onSubmit={addMoviesHandler}
         className="flex flex-col gap-3 items-center mb-10"
       >
         <input
@@ -31,14 +33,16 @@ const AddNewMovie = () => {
           placeholder="Movie Title"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
+          
           className="p-2 border-1 border-blue-400 rounded-2xl px-9"
         />
-        <input
+        <textarea
           type="text"
           placeholder="Opening Text"
           onChange={(e) => setOpeningText(e.target.value)}
           value={openingText}
-          className="h-50 p-2 border-1 border-blue-400 rounded-2xl px-9"
+          rows="5"
+          className="p-2 border-1 border-blue-400 rounded-2xl px-10 "
         />
         <input
           type="text"
