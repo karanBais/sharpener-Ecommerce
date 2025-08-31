@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import ErrorPage from "./ErrorPage";
+import AddNewMovie from "./AddNewMovie";
 
 const MovieData = () => {
   const [movies, setMovies] = useState([]);
@@ -74,9 +75,9 @@ const MovieData = () => {
 
   return (
     <div className="mx-auto my-10 gap-20 place-items-center">
+    <AddNewMovie movie={movies} /> 
       <h1 className="text-3xl text-center py-4">MOVIES</h1>
     
-
       {isLoading && <p className="text-center my-10">Loading...</p>}
 
       {/* Agar error hai to ErrorPage show karo */}
