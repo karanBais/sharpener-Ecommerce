@@ -39,7 +39,7 @@ const ProductsDetails = () => {
 
         <div className="flex gap-6">
           <h3 className="mt-4 text-lg">Review & Ratings</h3>
-          <h1 className=" text-lg mt-4 bg-green-500 px-2 rounded-xl ">3.9</h1>
+          <h1 className=" text-lg mt-4 bg-green-500 px-2 rounded-xl ">3.9 *</h1>
           <p className="mt-4">25,617 ratings and 1,903 reviews</p>
           <button className="mt-4 ml-45 bg-blue-400 px-2">Rate Product</button>
         </div>

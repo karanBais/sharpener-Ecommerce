@@ -6,7 +6,7 @@ import { useLocation, NavLink } from "react-router-dom";
 const Navbar = () => {
   const [showCart, setShowCart] = React.useState(false);
   const {cartItems} = useCart();
-  const location = useLocation();
+  const location = useLocation(); 
   return (
     <>
       <div className="bg-blue-500 text-white p-4">

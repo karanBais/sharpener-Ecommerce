@@ -5,7 +5,7 @@ const Products = () => {
     console.log(params.ProductId);
 
     const productArr = [
-        {
+        { 
             productImg: "https://imgs.search.brave.com/g00tGVFIXqLOfMbjA9DU7QNTnOR3NjHC1oXg6i3y9sU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2NjLzMw/LzllL2NjMzA5ZWI1/NjIzNzAwMWFlZDcz/OGI3MDlmNmZhNTI2/LmpwZw",
             productName: "Mens Casual T-shirt",
         },
