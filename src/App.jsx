@@ -9,6 +9,8 @@ import StorePage from "./Components/StorePage/StorePage";
 import HomePage from "./Components/HomePage/HomePage";
 import MovieData from "./Components/MovieData/MovieData";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import Products from "./Components/ShoppingPage/Products";
+import ProductsDetails from "./Components/ShoppingPage/ProductsDetails";
 
 
 
@@ -47,6 +49,14 @@ const appRoute = createBrowserRouter([
       path: '/movies',
       element: <MovieData />
     },
+    {
+      path: '/products',
+      element: <Products />
+    },
+    {
+      path: 'products-details/:productId',
+      element: <ProductsDetails />
+    }
   ]
 }
 ])
