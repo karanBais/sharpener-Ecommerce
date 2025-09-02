@@ -18,6 +18,7 @@ const Navbar = () => {
             <NavLink to={'/contact'}> <li>Contact Us</li></NavLink>
             <NavLink to={'/movies'}> <li>Movies</li></NavLink>
             <NavLink to={'/products'}> <li>Shopping</li></NavLink>
+            <NavLink to={'/login'}> <li>Login</li></NavLink>
           </ul>
           <button
             onClick={() => setShowCart(true)}

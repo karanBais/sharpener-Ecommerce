@@ -11,6 +11,7 @@ import MovieData from "./Components/MovieData/MovieData";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import Products from "./Components/ShoppingPage/Products";
 import ProductsDetails from "./Components/ShoppingPage/ProductsDetails";
+import Loginpage from "./Components/LoginPage/Loginpage";
 
 
 
@@ -56,6 +57,10 @@ const appRoute = createBrowserRouter([
     {
       path: 'products-details/:productId',
       element: <ProductsDetails />
+    },
+    {
+      path: '/login',
+      element: <Loginpage /> 
     }
   ] 
 }
