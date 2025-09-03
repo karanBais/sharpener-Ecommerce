@@ -25,7 +25,7 @@ const AppNavbar = ({ onCartClick }) => {
         </Nav>
         <button className="btn btn-outline-light" onClick={onCartClick}>Cart</button>
       </Container>
-    </Navbar>
+    </Navbar> 
   );
 };
 
