@@ -1,77 +1,50 @@
-import React from "react";
-import Navbar from "./Components/Navbar/Navbar";
-import MainSection from "./Components/StorePage/StorePage";
-import { CartProvider } from "./Components/ContextAPI/Context";
-import { createBrowserRouter, Outlet, RouterProvider, } from "react-router-dom";
-import AboutUs from "./Components/AboutUs/AboutUs";
-import Footer from "./Components/Navbar/Footer";
-import StorePage from "./Components/StorePage/StorePage";
-import HomePage from "./Components/HomePage/HomePage";
-import MovieData from "./Components/MovieData/MovieData";
-import ContactUs from "./Components/ContactUs/ContactUs";
-import Products from "./Components/ShoppingPage/Products";
-import ProductsDetails from "./Components/ShoppingPage/ProductsDetails";
-import Loginpage from "./Components/LoginPage/Loginpage";
+import React, { useState, lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { CartProvider } from './components/Cart/CartContext';
+import { AuthProvider } from './AuthContext';
+import PrivateRoute from './components/PrivateRoute';
 
+const AppNavbar = lazy(() => import('./components/AppNavbar'));
+const CartDrawer = lazy(() => import('./components/Cart/CartDrawer'));
+const ProductsList = lazy(() => import('./components/Product/ProductsList'));
+const Home = lazy(() => import('./components/Home/Home'));
+const About = lazy(() => import('./components/About/About'));
+const Contact = lazy(() => import('./components/Contact/Contact'));
+const ProductDetailPage = lazy(() => import('./components/Product/ProductDetailPage'));
+const LoginForm = lazy(() => import('./components/Login/LoginForm'));
+const Signup = lazy(() => import('./components/Signup/Signup'));
 
+function App() {
+  const [showCart, setShowCart] = useState(false);
 
-const Layout = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex flex-grow">
-      <Outlet /> 
-      </main>
-      <Footer />
-    </div>
-  )
-}
-const appRoute = createBrowserRouter([
-{path: '/',
-  element: <Layout/>,
-  children:[
-    {
-      path: '/',
-      element: <HomePage />
-    },
-    {
-      path: '/store',
-      element: <StorePage />
-    },
-    {
-      path: '/about',
-      element: <AboutUs />
-    },
-    {
-      path: '/contact',
-      element: <ContactUs />
-    },
-    {
-      path: '/movies',
-      element: <MovieData />
-    },
-    {
-      path: '/products',
-      element: <Products />
-    },
-    {
-      path: 'products-details/:productId',
-      element: <ProductsDetails />
-    },
-    {
-      path: '/login',
-      element: <Loginpage /> 
-    }
-  ] 
-}
-])
+    <AuthProvider>
+      <CartProvider>
+        <Suspense fallback={<p className="text-center mt-5">Loading...</p>}>
+          <AppNavbar onCartClick={() => setShowCart(true)} />
 
-const App = () => {
-  return (
-    <CartProvider>
-      <RouterProvider router={appRoute} />
-    </CartProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/store"
+              element={
+                <PrivateRoute>
+                  <ProductsList />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/product/:productId" element={<ProductDetailPage />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+
+          <CartDrawer show={showCart} handleClose={() => setShowCart(false)} />
+        </Suspense>
+      </CartProvider>
+    </AuthProvider>
   );
-};
+}
 
 export default App;
