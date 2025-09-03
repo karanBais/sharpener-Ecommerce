@@ -16,7 +16,7 @@ const Signup = lazy(() => import('./components/Signup/Signup'));
 
 function App() {
   const [showCart, setShowCart] = useState(false);
-
+ 
   return (
     <AuthProvider>
       <CartProvider>
